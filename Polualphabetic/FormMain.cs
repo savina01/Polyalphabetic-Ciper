@@ -31,9 +31,9 @@ namespace Polualphabetic
             int i;
             int j = 0;
 
-            string p = textBoxPlainText.Text;
+            string p = textBoxPlainText.Text.ToLower();
             char[] plain = p.ToCharArray();
-            string k = textBoxKey.Text;
+            string k = textBoxKey.Text.ToLower();
             char[] key = k.ToCharArray();
 
             for (i = 0; i < plain.Length; i++)
@@ -41,14 +41,14 @@ namespace Polualphabetic
                 if (j == key.Length)
                     j = 0;
 
-                if ((plain[i] + (key[j] - 97)) > 122)
+                if ((plain[i] + (key[j] - 96)) > 122)
                 {
-                    cipher[i] = Convert.ToChar(plain[i] + ((key[j] - 97) - 26));
+                    cipher[i] = Convert.ToChar(plain[i] + ((key[j] - 96) - 26));
                     j++;
                 }
                 else
                 {
-                    cipher[i] = Convert.ToChar(plain[i] + (key[j] - 97));
+                    cipher[i] = Convert.ToChar(plain[i] + (key[j] - 96));
                     j++;
                 }
             }
@@ -67,9 +67,9 @@ namespace Polualphabetic
             int i;
             int j = 0;
 
-            string c = textBoxCiper.Text;
+            string c = textBoxCiper.Text.ToLower();
             char[] ciper = c.ToCharArray();
-            string k = textBoxKey.Text;
+            string k = textBoxKey.Text.ToLower();
             char[] key = k.ToCharArray();
 
             for (i = 0; i < ciper.Length; i++)
@@ -78,9 +78,9 @@ namespace Polualphabetic
                     j = 0;
 
                 if ((ciper[i] - (key[j] - 97)) < 122 &&
-                    (ciper[i] - (key[j] - 97)) > 98)
+                    (ciper[i] - (key[j] - 97)) >= 98)
                 {
-                    plain[i] = Convert.ToChar(ciper[i] - (key[j] - 97));
+                    plain[i] = Convert.ToChar(ciper[i] - (key[j] - 96));
                     j++;
                 }
                 else
