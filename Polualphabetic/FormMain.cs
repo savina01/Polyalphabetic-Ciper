@@ -85,7 +85,7 @@ namespace Polualphabetic
                 }
                 else
                 {
-                    plain[i] = Convert.ToChar(ciper[i] - ((key[j] - 97) - 26));
+                    plain[i] = Convert.ToChar(ciper[i] - ((key[j] - 96) - 26));
                     j++;
                 }
             }
